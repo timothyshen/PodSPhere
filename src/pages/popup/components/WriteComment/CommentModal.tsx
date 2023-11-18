@@ -53,12 +53,12 @@ const CommentModal = () => {
 
         const completion = await result.value.waitForCompletion();
         if (completion.isFailure()) {
-            toast.error(completion.error.message);
+            console.error(completion.error.message);
             return;
         }
 
         const post = completion.value;
-        toast.success(`Post ID: ${post.id}`);
+        console.log(`Post ID: ${post.id}`);
         setComment(""); // Reset comment field after successful submission
     };
 

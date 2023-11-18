@@ -5,6 +5,7 @@ import makeManifest from './utils/plugins/make-manifest';
 import customDynamicImport from './utils/plugins/custom-dynamic-import';
 import addHmr from './utils/plugins/add-hmr';
 import watchRebuild from './utils/plugins/watch-rebuild';
+import { nodePolyfills } from 'vite-plugin-node-polyfills';
 
 const rootDir = resolve(__dirname);
 const srcDir = resolve(rootDir, 'src');
@@ -31,6 +32,13 @@ export default defineConfig({
     },
   },
   plugins: [
+    nodePolyfills({
+      globals: {
+        Buffer: true, // can also be 'build', 'dev', or false
+        global: true,
+        process: true,
+      },
+    }),
     makeManifest({
       contentScriptCssKey: regenerateCacheInvalidationKey(),
     }),
