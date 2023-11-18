@@ -26,10 +26,16 @@ const Header = () => {
 
 
     return (
-        <div className="min-h-[50px] w-full flex justify-between items-center bg-zinc-100 px-2 fixed">
+        <div className="min-h-[50px] w-full flex justify-between items-center bg-zinc-100 px-2">
             <IconContainer icon={faSearch} label="Home" />
 
-            <div className="w-10 h-10 rounded-full flex items-center justify-center cursor-pointer">
+            <div className="rounded-full flex items-center justify-center cursor-pointer"
+                onClick={
+                    () => {
+                        open()
+                    }
+                }
+            >
                 <ProfilePicture picture={profile.metadata.picture} />
             </div>
         </div>

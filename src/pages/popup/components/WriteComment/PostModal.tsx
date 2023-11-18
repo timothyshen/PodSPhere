@@ -17,7 +17,7 @@ import { uploadJson } from '../../lib/upload';
 import { ADD_COMMENT } from '@root/utils/graphql/init';
 import { useMutation } from '@apollo/client';
 
-const CommentModal = () => {
+const PostModal = () => {
     const [comment, setComment] = useState("");
     const { profileId } = useAuth();
 
@@ -61,13 +61,16 @@ const CommentModal = () => {
             // Handle error in the UI
         }
 
-        // Handle response
+        // check for failure scenarios
         if (result.isFailure()) {
             console.error(result.error.message);
             return;
         }
 
+        // wait for full completion
         const completion = await result.value.waitForCompletion();
+
+        // check for late failures
         if (completion.isFailure()) {
             console.error(completion.error.message);
             return;
@@ -77,9 +80,6 @@ const CommentModal = () => {
         console.log(`Post ID: ${post.id}`);
         setComment(""); // Reset comment field after successful submission
     };
-
-    if (publicationLoading) return <div>Loading...</div>;
-    if (publicationError) return <div>Error: {publicationError.message}</div>;
 
     return (
         <>
@@ -112,4 +112,4 @@ const CommentModal = () => {
     );
 }
 
-export default CommentModal;
+export default PostModal;

@@ -2,7 +2,7 @@ import { NftImage, ProfilePictureSet } from '@lens-protocol/react-web';
 
 import { useBuildResourceSrc } from '../../hooks/useBuildResourceSrc';
 
-const PROFILE_PICTURE_SIZE = '4rem';
+const PROFILE_PICTURE_SIZE = '40px';
 
 function FallbackProfilePicture() {
   return (

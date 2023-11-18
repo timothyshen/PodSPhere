@@ -1,7 +1,7 @@
 {
-  "name": "chrome-extension-boilerplate-react-vite",
+  "name": "PodSphere",
   "version": "0.0.1",
-  "description": "chrome extension boilerplate",
+  "description": "This is a Chrome extension for RSS podcast aggregation on top of Lens Protocol.",
   "license": "MIT",
   "repository": {
     "type": "git",

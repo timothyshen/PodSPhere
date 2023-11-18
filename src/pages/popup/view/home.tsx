@@ -57,31 +57,11 @@ export default function UserHome({ navigateToPage }: { navigateToPage: (page: Re
                     <Podcast
                         title={PodcastData.name || title} // Replace with actual properties from fetched data
                         description={PodcastData.description}
-                        image={PodcastData.images[0].url}
+                        // image={PodcastData.images[0].url}
+                        image="https://cdn.player.fm/images/25004263/series/Eo3iU8rNU8jESRv4/512.jpg"
                     />
                 )}
                 <CommentFilter />
-                <Comment
-                    username="user1"
-                    commentText="This is a comment from user1."
-                    avatarSrc="/placeholder-user.jpg"
-                />
-
-                <Comment
-                    username="user2"
-                    commentText="This is a comment from user2."
-                    avatarSrc="/placeholder-user2.jpg"
-                />
-                <Comment
-                    username="user2"
-                    commentText="This is a comment from user2."
-                    avatarSrc="/placeholder-user2.jpg"
-                />
-                <Comment
-                    username="user2"
-                    commentText="This is a comment from user2."
-                    avatarSrc="/placeholder-user2.jpg"
-                />
 
             </main >
             <CommentBar />

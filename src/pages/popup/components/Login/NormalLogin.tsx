@@ -12,13 +12,15 @@ export function LogInPage({ navigateToPage }: { navigateToPage: (page: React.Set
 
     return (
         <div>
-            <button
-                className="px-6 py-3 bg-blue-500 text-white font-semibold rounded-md hover:bg-blue-600 focus:outline-none focus:ring-2 focus:ring-blue-300"
-                onClick={() => {
-                    open()
-                }}>
-                {isConnected ? "Open my account" : "Open Connect Modal"}
-            </button>
+            {!isConnected &&
+                <button
+                    className="px-6 py-3 bg-blue-500 text-white font-semibold rounded-md hover:bg-blue-600 focus:outline-none focus:ring-2 focus:ring-blue-300"
+                    onClick={() => {
+                        open()
+                    }}>
+                    Open Connect Modal
+                </button>
+            }
 
             {isConnecting && (
                 <p>Connecting...</p>
@@ -26,7 +28,9 @@ export function LogInPage({ navigateToPage }: { navigateToPage: (page: React.Set
 
             {address && (
                 <div>
-                    <p>{`Using wallet ${address}`}</p>
+                    <p className="bg-blue-100 text-blue-800 font-semibold px-4 py-2 rounded-lg shadow border border-blue-300 hover:shadow-md transition-all">
+                        {`Using wallet ${address.substring(0, 6)}...${address.substring(address.length - 4)}`}
+                    </p>
                     <LensLogin owner={address} onSuccess={() => navigateToPage('UserHome')} />
                 </div>
             )}
