@@ -28,11 +28,11 @@ export default function UserHome({ navigateToPage }: { navigateToPage: (page: Re
 
     useEffect(() => {
         chrome.tabs.query({ active: true, currentWindow: true }, (tabs) => {
-            console.log(tabs)
-            console.log(tabs[0].url)
-            const id = tabs[0].url.split("/")[-1];
-            setPodcastId(id);
-            setTitle(tabs[0].title);
+            if (tabs[0].url.includes("spotify")) {
+                const id = tabs[0].url.split("/")[-1];
+                setPodcastId(id);
+                setTitle(tabs[0].title);
+            }
         })
         const fetchToken = async () => {
             // Assume getAccessToken function is available
