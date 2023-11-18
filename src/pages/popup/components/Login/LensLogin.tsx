@@ -1,9 +1,11 @@
 import { profileId, useLogin, useProfilesManaged } from '@lens-protocol/react-web';
+import { on } from 'events';
 
 
 export function LensLogin({ owner, onSuccess }: { owner: string; onSuccess?: () => void }) {
     const { execute: login, loading: isLoginPending } = useLogin();
     const { data: profiles, error, loading } = useProfilesManaged({ for: owner, includeOwned: true });
+    console.log(profiles, error, loading)
 
     const onSubmit = async (event: React.FormEvent<HTMLFormElement>) => {
         event.preventDefault();
@@ -19,12 +21,18 @@ export function LensLogin({ owner, onSuccess }: { owner: string; onSuccess?: () 
         });
 
 
+        if (result.isSuccess()) {
+            return onSuccess?.();
+        }
 
-        console.error(result);
+        console.log(result);
     };
 
+    if (loading) {
+        return <p>Loading...</p>;
+    }
     //@ts-ignore
-    if (profiles.length === 0) {
+    if (profiles.length === 0 || profiles === undefined) {
         return <p>No profiles on this wallet.</p>;
     }
 
@@ -33,7 +41,7 @@ export function LensLogin({ owner, onSuccess }: { owner: string; onSuccess?: () 
             <fieldset>
                 <legend>Which Profile you want to log-in with?</legend>
 
-                {profiles?.map((profile, idx) => (
+                {profiles.map((profile, idx) => (
                     <label key={profile.id}>
                         <input
                             disabled={isLoginPending}
