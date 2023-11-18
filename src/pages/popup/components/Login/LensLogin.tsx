@@ -1,9 +1,13 @@
 import { profileId, useLogin, useProfilesManaged } from '@lens-protocol/react-web';
-
+import { useAuth } from '../../context/AuthContext';
+import { Button } from '../ui/button';
 
 export function LensLogin({ owner, onSuccess }: { owner: string; onSuccess?: () => void }) {
     const { execute: login, loading: isLoginPending } = useLogin();
     const { data: profiles, error, loading } = useProfilesManaged({ for: owner, includeOwned: true });
+    const { loginSuccess } = useAuth();
+
+    // console.log(profiles, error, loading)
 
     const onSubmit = async (event: React.FormEvent<HTMLFormElement>) => {
         event.preventDefault();
@@ -18,13 +22,18 @@ export function LensLogin({ owner, onSuccess }: { owner: string; onSuccess?: () 
             profileId: id,
         });
 
-
-
-        console.error(result);
+        if (result.isSuccess()) {
+            console.log(result);
+            loginSuccess(id);
+            return onSuccess?.();
+        }
     };
 
+    if (loading) {
+        return <p>Loading...</p>;
+    }
     //@ts-ignore
-    if (profiles.length === 0) {
+    if (profiles.length === 0 || profiles === undefined) {
         return <p>No profiles on this wallet.</p>;
     }
 
@@ -33,7 +42,7 @@ export function LensLogin({ owner, onSuccess }: { owner: string; onSuccess?: () 
             <fieldset>
                 <legend>Which Profile you want to log-in with?</legend>
 
-                {profiles?.map((profile, idx) => (
+                {profiles.map((profile, idx) => (
                     <label key={profile.id}>
                         <input
                             disabled={isLoginPending}
@@ -47,9 +56,9 @@ export function LensLogin({ owner, onSuccess }: { owner: string; onSuccess?: () 
                 ))}
 
                 <div>
-                    <button disabled={isLoginPending} type="submit">
+                    <Button disabled={isLoginPending} type="submit" variant='secondary'>
                         Continue
-                    </button>
+                    </Button>
                 </div>
             </fieldset>
         </form>
