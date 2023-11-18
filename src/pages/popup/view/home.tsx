@@ -4,6 +4,9 @@ import CommentFilter from '../components/Comment/CommentFilter'
 import Comment from '../components/Comment/Comment'
 import Podcast from '../components/Podcast/Podcast'
 import Header from '../components/Header'
+import { useEffect } from 'react'
+import browser from 'webextension-polyfill';
+
 
 
 const podcast = {
@@ -13,6 +16,13 @@ const podcast = {
 }
 
 export default function UserHome({ navigateToPage }: { navigateToPage: (page: React.SetStateAction<string>) => void }) {
+
+    useEffect(() => {
+        browser.runtime.sendMessage({ message: "getTitle" }).then(response => {
+            console.log("test", response);
+        });
+    }, []);
+
     return (
         <>
             <Header />
