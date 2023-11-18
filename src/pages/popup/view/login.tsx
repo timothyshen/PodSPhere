@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react';
 
 import { Button } from '../components/ui/button'
-import WalletConnectButton from '../components/Login/Web3Modal'
+import { LogInPage } from '../components/Login/NormalLogin'
 // import WorldCoinButton from '../components/Login/WorldCoinButton'
 
 export default function Login({ navigateToPage }: { navigateToPage: (page: React.SetStateAction<string>) => void }) {
@@ -12,6 +12,7 @@ export default function Login({ navigateToPage }: { navigateToPage: (page: React
     const [url, setUrl] = useState<string>('');
     const [logo, setLogo] = useState<string>('');
     const [title, setTitle] = useState<number>(0);
+
 
     function injectedFunction() {
         const spans = document.querySelectorAll('span');
@@ -49,15 +50,15 @@ export default function Login({ navigateToPage }: { navigateToPage: (page: React
 
     return (
         <div className="w-[400px] h-[600px] flex flex-col items-center justify-center gap-4 bg-gray-200">
-            <WalletConnectButton />
+            <LogInPage />
             {/* <WorldCoinButton /> */}
 
-            <Button onClick={navigateToUserHome}>
+            {/* <Button onClick={navigateToUserHome}>
                 test {title}
             </Button>
             <Button onClick={logDomElements}>
                 Log DOM Elements
-            </Button>
+            </Button> */}
         </div>
     );
 }

@@ -16,7 +16,7 @@ export default function UserHome({ navigateToPage }: { navigateToPage: (page: Re
     return (
         <>
             <Header />
-            <main className=' w-full overflow-scroll p-2'>
+            <main>
                 <Podcast
                     title={podcast.title}
                     description={podcast.description}
@@ -45,7 +45,7 @@ export default function UserHome({ navigateToPage }: { navigateToPage: (page: Re
                     avatarSrc="/placeholder-user2.jpg"
                 />
 
-            </main>
+            </main >
             <CommentBar />
             <Footer />
         </>
