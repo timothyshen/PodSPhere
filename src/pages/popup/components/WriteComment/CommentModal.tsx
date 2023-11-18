@@ -14,7 +14,7 @@ import { Button } from "../ui/button";
 import Toolbar from "./Toolbar";
 import { publicationId, useCreateComment, usePublication } from '@lens-protocol/react-web';
 import { useAuth } from '../../context/AuthContext';
-import toast from 'react-hot-toast';
+import { uploadJson } from '../../lib/upload';
 
 const CommentModal = () => {
     const [comment, setComment] = useState("");
@@ -39,7 +39,7 @@ const CommentModal = () => {
         // Publish post
         const result = await execute({
             commentOn: publication?.id ?? never('publication is not loaded'),
-            metadata: await uploadJson(metadata),
+            metadata: await uploadJson(metadata, 'lighthouse'),
         });
 
         //TODO: lighthouse
