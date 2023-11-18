@@ -1,25 +1,30 @@
-import Comment from './Comment'; // Ensure you import the Comment component correctly
+import Comment from './Comment';
+import { useQuery } from '@apollo/client';
+import { GET_ALL_COMMENTS } from '@root/utils/graphql/init';
 
-//TODO: Get all comments from the server
-
-const data = [
-    {
-        username: "user1",
-        commentText: "This is a comment from user1.",
-        avatarSrc: "/placeholder-user.jpg",
-    },
-    // You can add more comment objects here
-];
+// Define the type for an individual comment
+type CommentType = {
+    id: string; // Assuming each comment has a unique ID
+    profile_id: string;
+    content: string;
+    platform: string;
+};
 
 const CommentList = () => {
+    const { loading, error, data } = useQuery(GET_ALL_COMMENTS);
+
+    if (loading) return <p>Loading...</p>;
+    if (error) return <p>Error: {error.message}</p>;
+    if (!data || !data.getComments) return <p>No comments found.</p>;
+
     return (
         <div>
-            {data.map((comment, index) => (
+            {data.getComments.map((comment: CommentType) => (
                 <Comment
-                    key={index} // It's important to provide a unique key for each child in a list
-                    username={comment.username}
-                    commentText={comment.commentText}
-                    avatarSrc={comment.avatarSrc}
+                    key={comment.id} // Use unique ID as key
+                    username={comment.profile_id}
+                    commentText={comment.content}
+                    platform={comment.platform}
                 />
             ))}
         </div>

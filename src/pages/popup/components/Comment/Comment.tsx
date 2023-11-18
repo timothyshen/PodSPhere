@@ -6,7 +6,7 @@ import { UseReactionToggle } from "./UseReactionToggle";
 interface CommentProps {
     username: string;
     commentText: string;
-    avatarSrc: string;
+    platform: string;
 }
 
 
@@ -51,12 +51,12 @@ const ActionButtons: React.FC = () => (
     </div>
 );
 
-const Comment: React.FC<CommentProps> = ({ username, commentText, avatarSrc }) => {
+const Comment: React.FC<CommentProps> = ({ username, commentText, platform }) => {
     return (
         <div className="grid gap-6 mt-5 ">
             <div className="text-sm flex items-start gap-4">
                 <Avatar className="w-10 h-10 border">
-                    <AvatarImage alt={`@${username}`} src={avatarSrc} />
+                    <AvatarImage alt={`@${username}`} />
                     <AvatarFallback>{username.substring(0, 2)}</AvatarFallback>
                 </Avatar>
                 <div className="grid gap-1.5">
@@ -64,6 +64,7 @@ const Comment: React.FC<CommentProps> = ({ username, commentText, avatarSrc }) =
                         <div className="font-semibold">@{username}</div>
                     </div>
                     <div>{commentText}</div>
+                    <div className="text-xs text-gray-500">{platform}</div>
                     <ActionButtons />
                 </div>
             </div>
