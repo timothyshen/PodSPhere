@@ -22,7 +22,6 @@ export function LensLogin({ owner, onSuccess }: { owner: string; onSuccess?: () 
             profileId: id,
         });
 
-
         if (result.isSuccess()) {
             console.log(result);
             loginSuccess(id);

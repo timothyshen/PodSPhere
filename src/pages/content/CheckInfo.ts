@@ -11,9 +11,14 @@ function findPodcastTitle() {
   return 'test';
 }
 
-browser.runtime.onMessage.addListener((request, sender, sendResponse) => {
+browser.runtime.onMessage((request, sender, sendResponse) => {
+  console.log('message received');
+  console.log(request);
+  console.log(sender);
+  console.log(sendResponse);
   if (request.message === 'fetchTitle') {
     console.log('fetching title');
+    findPodcastTitle();
     sendResponse({ title: findPodcastTitle() });
   }
 });

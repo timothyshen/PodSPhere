@@ -10,7 +10,7 @@ browser.runtime.onMessage.addListener(async (request, sender, sendResponse) => {
   console.log(urls);
   if (request.message === 'getTitle') {
     console.log('getting title');
-    browser.tabs.query({ active: true, autoDiscardable: true }).then(tabs => {
+    browser.tabs.query({ url: urls }).then(tabs => {
       console.log(tabs);
       if (tabs[0].url && tabs[0].url.includes('spotify')) {
         console.log('sending message to content script');
