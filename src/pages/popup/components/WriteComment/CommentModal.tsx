@@ -42,8 +42,7 @@ const CommentModal = () => {
             metadata: await uploadJson(metadata, 'lighthouse'),
         });
 
-        //TODO: lighthouse
-        //TODO: backend DB
+        //TODO: Add comment create
 
         // Handle response
         if (result.isFailure()) {

@@ -1,5 +1,7 @@
 import Comment from './Comment'; // Ensure you import the Comment component correctly
 
+//TODO: Get all comments from the server
+
 const data = [
     {
         username: "user1",
