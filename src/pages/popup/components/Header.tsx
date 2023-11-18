@@ -29,8 +29,8 @@ const Header = () => {
         <div className="min-h-[50px] w-full flex justify-between items-center bg-zinc-100 px-2 fixed">
             <IconContainer icon={faSearch} label="Home" />
 
-            <div className="w-10 h-10 bg-zinc-300 rounded-full flex items-center justify-center hover:bg-zinc-300 cursor-pointer">
-                {/* <ProfilePicture picture={profile.picture} /> */}
+            <div className="w-10 h-10 rounded-full flex items-center justify-center cursor-pointer">
+                <ProfilePicture picture={profile.metadata.picture} />
             </div>
         </div>
     );

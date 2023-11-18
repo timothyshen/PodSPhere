@@ -1,5 +1,6 @@
 import { profileId, useLogin, useProfilesManaged } from '@lens-protocol/react-web';
 import { useAuth } from '../../context/AuthContext';
+import { Button } from '../ui/button';
 
 export function LensLogin({ owner, onSuccess }: { owner: string; onSuccess?: () => void }) {
     const { execute: login, loading: isLoginPending } = useLogin();
@@ -56,9 +57,9 @@ export function LensLogin({ owner, onSuccess }: { owner: string; onSuccess?: () 
                 ))}
 
                 <div>
-                    <button disabled={isLoginPending} type="submit">
+                    <Button disabled={isLoginPending} type="submit" variant='secondary'>
                         Continue
-                    </button>
+                    </Button>
                 </div>
             </fieldset>
         </form>
