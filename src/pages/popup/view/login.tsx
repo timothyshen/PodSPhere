@@ -37,10 +37,6 @@ export default function Login({ navigateToPage }: { navigateToPage: (page: React
         return () => chrome.runtime.onMessage.removeListener(messageListener);
     }, []);
 
-
-    const navigateToUserHome = () => {
-        navigateToPage('UserHome');
-    };
     const logDomElements = () => {
         chrome.tabs.query({ active: true, currentWindow: true }, (tabs) => {
             console.log(tabs)

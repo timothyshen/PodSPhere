@@ -27,7 +27,7 @@ export function LogInPage({ navigateToPage }: { navigateToPage: (page: React.Set
             {address && (
                 <div>
                     <p>{`Using wallet ${address}`}</p>
-                    <LensLogin owner={address} onSuccess={() => navigateToPage("index")} />
+                    <LensLogin owner={address} onSuccess={() => navigateToPage('UserHome')} />
                 </div>
             )}
         </div>

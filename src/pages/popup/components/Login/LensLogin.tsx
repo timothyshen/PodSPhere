@@ -1,11 +1,12 @@
 import { profileId, useLogin, useProfilesManaged } from '@lens-protocol/react-web';
-import { on } from 'events';
-
+import { useAuth } from '../../context/AuthContext';
 
 export function LensLogin({ owner, onSuccess }: { owner: string; onSuccess?: () => void }) {
     const { execute: login, loading: isLoginPending } = useLogin();
     const { data: profiles, error, loading } = useProfilesManaged({ for: owner, includeOwned: true });
-    console.log(profiles, error, loading)
+    const { loginSuccess } = useAuth();
+
+    // console.log(profiles, error, loading)
 
     const onSubmit = async (event: React.FormEvent<HTMLFormElement>) => {
         event.preventDefault();
@@ -22,10 +23,10 @@ export function LensLogin({ owner, onSuccess }: { owner: string; onSuccess?: () 
 
 
         if (result.isSuccess()) {
+            console.log(result);
+            loginSuccess(id);
             return onSuccess?.();
         }
-
-        console.log(result);
     };
 
     if (loading) {
