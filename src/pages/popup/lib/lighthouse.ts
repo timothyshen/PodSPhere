@@ -3,6 +3,8 @@ import lighthouse from '@lighthouse-web3/sdk';
 const apiKey = '025f2373.';
 
 export async function uploadLighthouse(upload_path: string) {
+  console.log('uploading to lighthouse');
+  console.log(upload_path);
   const response = await lighthouse
     .upload(upload_path, apiKey)
     .then(uploadResponse => {

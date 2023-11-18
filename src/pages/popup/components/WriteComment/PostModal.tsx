@@ -33,33 +33,36 @@ const PostModal = () => {
             content: comment,
         });
 
+        console.log(metadata);
+
         // Publish post
         const result = await execute({
             metadata: await uploadJson(metadata, 'lighthouse'),
         });
 
+        console.log(result);
         //TODO: Add comment create
 
         const [addComment] = useMutation(ADD_COMMENT);
-        try {
-            const input = {
-                episode_title: 'your_episode_id', // Replace with actual data
-                profile_id: profileId, // Replace with actual data
-                content: comment, // Use the state comment
-                comment_hash: result, // Generate or obtain this hash
-                platform: 'your_platform', // Specify the platform
-            };
+        // try {
+        //     const input = {
+        //         episode_title: 'your_episode_id', // Replace with actual data
+        //         profile_id: profileId, // Replace with actual data
+        //         content: comment, // Use the state comment
+        //         comment_hash: result, // Generate or obtain this hash
+        //         platform: 'your_platform', // Specify the platform
+        //     };
 
-            // Call the addComment mutation
-            const { data } = await addComment({ variables: { input } });
-            console.log('New Comment:', data.addComment);
-            // Reset comment field and handle any UI updates
-            setComment("");
-            // Optionally, show success message to user
-        } catch (error) {
-            console.error('Error adding comment:', error);
-            // Handle error in the UI
-        }
+        //     // Call the addComment mutation
+        //     const { data } = await addComment({ variables: { input } });
+        //     console.log('New Comment:', data.addComment);
+        //     // Reset comment field and handle any UI updates
+        //     setComment("");
+        //     // Optionally, show success message to user
+        // } catch (error) {
+        //     console.error('Error adding comment:', error);
+        //     // Handle error in the UI
+        // }
 
         // check for failure scenarios
         if (result.isFailure()) {
@@ -88,10 +91,11 @@ const PostModal = () => {
                     <DialogTitle className="text-left">Create Post</DialogTitle>
                 </DialogHeader>
                 <form onSubmit={onSubmit}>
-                    <div className="flex items-left space-x-2">
+                    <div className="flex items-left space-x-2 mb-3">
                         <div className="grid flex-1">
                             <Toolbar />
                             <Textarea
+                                className='mb-5'
                                 onChange={(e) => setComment(e.target.value)}
                                 value={comment}
                                 disabled={loading}

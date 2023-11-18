@@ -1,5 +1,5 @@
-import { ApolloProvider, ApolloClient, InMemoryCache, gql, useMutation } from '@apollo/client';
-const GRAPHQL_API = 'http://localhost:4000';
+import { ApolloClient, InMemoryCache, gql } from '@apollo/client';
+const GRAPHQL_API = 'http://20.26.200.100:4000/';
 // Initialize Apollo Client
 const client = new ApolloClient({
   uri: GRAPHQL_API, // Replace with your server's GraphQL endpoint

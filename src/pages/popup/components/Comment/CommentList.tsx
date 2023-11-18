@@ -12,6 +12,7 @@ type CommentType = {
 
 const CommentList = () => {
     const { loading, error, data } = useQuery(GET_ALL_COMMENTS);
+    console.log(data);
 
     if (loading) return <p>Loading...</p>;
     if (error) return <p>Error: {error.message}</p>;
@@ -19,14 +20,15 @@ const CommentList = () => {
 
     return (
         <div>
-            {data.getComments.map((comment: CommentType) => (
+            {/* {data.getComments.map((comment: CommentType) => (
                 <Comment
                     key={comment.id} // Use unique ID as key
                     username={comment.profile_id}
                     commentText={comment.content}
                     platform={comment.platform}
                 />
-            ))}
+            ))} */}
+            <div>hi</div>
         </div>
     );
 };

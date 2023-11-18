@@ -8,7 +8,8 @@ import { useEffect } from 'react'
 import browser from 'webextension-polyfill';
 import { useState } from 'react'
 import { getAccessToken, fetchEpisode } from '../lib/Spotify'
-
+import CommentList from '../components/Comment/CommentList'
+import CommentListLens from '../components/Comment/CommentList-lens'
 
 
 // const podcast = {
@@ -62,6 +63,8 @@ export default function UserHome({ navigateToPage }: { navigateToPage: (page: Re
                     />
                 )}
                 <CommentFilter />
+                <CommentListLens />
+                <CommentList />
 
             </main >
             <CommentBar />
