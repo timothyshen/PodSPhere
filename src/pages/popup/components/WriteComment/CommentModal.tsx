@@ -1,3 +1,5 @@
+import { textOnly } from '@lens-protocol/metadata';
+import { never } from '../../lib/utils';
 import { useState, useEffect } from "react";
 import {
     DialogContent,
@@ -12,22 +14,21 @@ import { Button } from "../ui/button";
 import Toolbar from "./Toolbar";
 import { publicationId, useCreateComment, usePublication } from '@lens-protocol/react-web';
 import { useAuth } from '../../context/AuthContext';
-import Loading from '../ui/Loading';
-import ErrorMessage from '../ui/ErrorMessage';
 import toast from 'react-hot-toast';
 
 const CommentModal = () => {
     const [comment, setComment] = useState("");
+    const { profileId } = useAuth();
 
     const {
         data: publication,
         error: publicationError,
         loading: publicationLoading,
-    } = usePublication({ forId: publicationId('0x04-0x0b') });
+    } = usePublication({ forId: profileId });
 
     const { execute, loading, error } = useCreateComment();
 
-    const onSubmit = async (event) => {
+    const onSubmit = async (event: React.FormEvent<HTMLFormElement>) => {
         event.preventDefault();
 
         // Create post metadata
@@ -61,8 +62,8 @@ const CommentModal = () => {
         setComment(""); // Reset comment field after successful submission
     };
 
-    if (publicationLoading) return <Loading />;
-    if (publicationError) return <ErrorMessage error={publicationError} />;
+    if (publicationLoading) return <div>Loading...</div>;
+    if (publicationError) return <div>Error: {publicationError.message}</div>;
 
     return (
         <>

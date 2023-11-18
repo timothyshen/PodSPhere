@@ -30,6 +30,7 @@
     "@fortawesome/free-regular-svg-icons": "^6.4.2",
     "@fortawesome/free-solid-svg-icons": "^6.4.2",
     "@fortawesome/react-fontawesome": "^0.2.0",
+    "@lens-protocol/metadata": "^1.0.5",
     "@lens-protocol/react-web": "2.0.0-alpha.21",
     "@lens-protocol/wagmi": "3.0.0-alpha.18",
     "@radix-ui/react-avatar": "^1.0.4",
