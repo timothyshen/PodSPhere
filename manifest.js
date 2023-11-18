@@ -27,7 +27,7 @@ const manifest = {
       matches: ['http://*/*', 'https://*/*', '<all_urls>'],
       js: ['src/pages/content/index.js'],
       // KEY for cache invalidation
-      css: ['assets/css/contentStyle<KEY>.chunk.css'],
+      css: ['assets/css/index.chunk.css'],
     },
   ],
   web_accessible_resources: [
