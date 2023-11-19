@@ -2,7 +2,7 @@ import React from "react";
 import { Avatar, AvatarFallback, AvatarImage } from "../ui/avatar";
 import { Button } from "../ui/button";
 import { UseReactionToggle } from "./UseReactionToggle";
-import { getAllComments } from "@root/utils/graphql/init";
+import { UseCommentToggle } from "./UseCommentToggle";
 
 interface CommentProps {
     username: string;
@@ -33,22 +33,7 @@ const ActionButtons: React.FC = () => (
                 <path d="M8 16H3v5" />
             </svg>
         </Button>
-        <Button variant="ghost">
-            <svg
-                className=" w-4 h-4"
-                fill="none"
-                height="24"
-                stroke="currentColor"
-                strokeLinecap="round"
-                strokeLinejoin="round"
-                strokeWidth="2"
-                viewBox="0 0 24 24"
-                width="24"
-                xmlns="http://www.w3.org/2000/svg"
-            >
-                <path d="m3 21 1.9-5.7a8.5 8.5 0 1 1 3.8 3.8z" />
-            </svg>
-        </Button>
+        <UseCommentToggle publication="publication" />
     </div>
 );
 
