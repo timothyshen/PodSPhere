@@ -33,14 +33,14 @@ const PostModal = () => {
             content: comment,
         });
 
-        console.log(metadata);
+        console.log("metadata", metadata);
 
         // Publish post
         const result = await execute({
             metadata: await uploadJson(metadata, 'lighthouse'),
         });
 
-        console.log(result);
+        console.log("result", result);
         //TODO: Add comment create
 
         const [addComment] = useMutation(ADD_COMMENT);
@@ -72,6 +72,7 @@ const PostModal = () => {
 
         // wait for full completion
         const completion = await result.value.waitForCompletion();
+        console.log(completion);
 
         // check for late failures
         if (completion.isFailure()) {

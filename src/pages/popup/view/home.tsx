@@ -7,7 +7,7 @@ import Header from '../components/Header'
 import { useEffect } from 'react'
 import browser from 'webextension-polyfill';
 import { useState } from 'react'
-import { getAccessToken, fetchEpisode } from '../lib/Spotify'
+import { getToken, fetchEpisode } from '../lib/Spotify'
 import CommentList from '../components/Comment/CommentList'
 import CommentListLens from '../components/Comment/CommentList-lens'
 
@@ -24,29 +24,31 @@ export default function UserHome({ navigateToPage }: { navigateToPage: (page: Re
     const [title, setTitle] = useState<string>("");
     const [PodcastData, setPodcastData] = useState<any>(null);
 
-    const clientId = "your_client_id";
-    const code = undefined;
+    const clientId = "214519cca0e2470ca5547f90968ed5ac";
+    const params = new URLSearchParams(window.location.search);
+    console.log("code", params);
+    const code = params.get("code");
 
     useEffect(() => {
         chrome.tabs.query({ active: true, currentWindow: true }, (tabs) => {
+            // console.log(tabs[0].url)
             if (tabs[0].url.includes("spotify")) {
-                const id = tabs[0].url.split("/")[-1];
+                const id = tabs[0].url.split("/")[4];
+                // console.log("browser id", id);
                 setPodcastId(id);
                 setTitle(tabs[0].title);
             }
         })
-        const fetchToken = async () => {
-            // Assume getAccessToken function is available
-            return await getAccessToken(clientId, code);
-        };
 
-        const fetchPodcastData = async () => {
-            const token = await fetchToken();
-            const data = await fetchEpisode(token, PodcastId);
-            setPodcastData(data); // Store the fetched podcast data
-        };
-
-        fetchPodcastData();
+        getToken().then((token) => {
+            console.log("token", token.access_token);
+            if (token) {
+                fetchEpisode(token.access_token, PodcastId).then((data) => {
+                    console.log("data", data);
+                    setPodcastData(data);
+                })
+            }
+        })
     }, [PodcastId]);
 
 
@@ -64,7 +66,7 @@ export default function UserHome({ navigateToPage }: { navigateToPage: (page: Re
                 )}
                 <CommentFilter />
                 <CommentListLens />
-                <CommentList />
+                {/* <CommentList /> */}
 
             </main >
             <CommentBar />

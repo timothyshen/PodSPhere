@@ -9,7 +9,7 @@ const manifest = {
   name: packageJson.name,
   version: packageJson.version,
   description: packageJson.description,
-  permissions: ['tabs', 'activeTab', 'storage', 'scripting'],
+  permissions: ['tabs', 'activeTab', 'storage', 'scripting', 'http://20.26.200.100:4000/', 'https://api.spotify.com/'],
   background: {
     service_worker: 'src/pages/background/index.js',
     type: 'module',

@@ -4,6 +4,7 @@
  */
 
 import browser from 'webextension-polyfill';
+import { getAccessToken, fetchEpisode } from '../popup/lib/Spotify';
 
 browser.runtime.onMessage.addListener(async (request, sender, sendResponse) => {
   let { urls } = await browser.storage.local.get('urls');
