@@ -6,7 +6,7 @@ export async function uploadLighthouse(upload_path: string) {
   console.log('uploading to lighthouse');
   console.log(upload_path);
   const response = await lighthouse
-    .upload(upload_path, apiKey)
+    .uploadText(upload_path, apiKey)
     .then(uploadResponse => {
       console.log('Upload completed:', uploadResponse);
       return uploadResponse.data.Hash;

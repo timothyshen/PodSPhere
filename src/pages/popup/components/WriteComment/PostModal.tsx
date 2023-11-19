@@ -38,7 +38,7 @@ const PostModal = () => {
 
         // Publish post
         const result = await execute({
-            metadata: await uploadJson(metadata, 'iyks'),
+            metadata: await uploadJson(metadata, 'lighthouse'),
         });
 
         console.log("result", result);

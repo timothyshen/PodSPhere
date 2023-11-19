@@ -32,7 +32,6 @@ const CommentList = () => {
                     platform={comment.platform}
                 />
             ))}
-            <div>hi</div>
         </div>
     );
 };
