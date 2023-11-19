@@ -31,3 +31,15 @@ export const GET_ALL_COMMENTS = gql`
     }
   }
 `;
+
+export const getAllComments = async () => {
+  try {
+    const response = await client.query({
+      query: GET_ALL_COMMENTS,
+    });
+
+    console.log('All comments:', response.data.getComments);
+  } catch (error: any) {
+    console.error('Error getting comments:', error.message);
+  }
+};
