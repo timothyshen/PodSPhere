@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import UserHome from '../view/home';
 import Login from '../view/login';
+import Profile from '../view/Profile';
 
 export default function Home() {
   const [activePage, setActivePage] = useState('Login');
@@ -14,6 +15,7 @@ export default function Home() {
 
       {activePage === 'UserHome' && <UserHome navigateToPage={navigateToPage} />}
       {activePage === 'Login' && <Login navigateToPage={navigateToPage} />}
+      {activePage === 'Profile' && <Profile navigateToPage={navigateToPage} />}
     </div>
   );
 }

@@ -53,7 +53,7 @@ const PostModal = () => {
         }
 
         const commentResult = await addComment(variables);
-
+        console.log("commentResult", commentResult);
 
         // check for failure scenarios
         if (result.isFailure()) {
@@ -80,7 +80,7 @@ const PostModal = () => {
         <>
             <DialogContent className="w-[380px]">
                 <DialogHeader>
-                    <DialogTitle className="text-left">Create Post</DialogTitle>
+                    <DialogTitle className="text-left">Comment Post</DialogTitle>
                 </DialogHeader>
                 <form onSubmit={onSubmit}>
                     <div className="flex items-left space-x-2 mb-3">

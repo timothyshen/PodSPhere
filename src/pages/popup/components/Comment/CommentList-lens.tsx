@@ -30,12 +30,24 @@ const CommentListLens = () => {
         })
 
 
-    console.log(publications);
+    console.log("publications", publications);
 
 
     return (
         <div>
-            <h1>hi</h1>
+            {publications?.map((publication) => {
+                return (
+                    <Comment
+                        key={publication.id}
+                        //@ts-ignore
+                        content={publication.metadata.content}
+                        profileId={publication.by.id}
+                        platform="spotify"
+                        episodeTitle="test"
+                        commentHash={publication.momoka.proof}
+                    />
+                );
+            })}
         </div>
     );
 };

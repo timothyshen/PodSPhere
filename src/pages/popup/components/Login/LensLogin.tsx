@@ -44,7 +44,7 @@ export function LensLogin({ owner, onSuccess }: { owner: string; onSuccess?: () 
                 <form onSubmit={onSubmit} className="space-y-4">
                     <fieldset className='w-full'>
                         {profiles.map((profile, idx) => (
-                            <div className="w-full h-[60px] p-3 flex items-center justify-between bg-white text-gray-800 font-semibold border border-gray-300 rounded-lg shadow transition-all hover:bg-gray-800 hover:text-white hover:shadow-lg">
+                            <div className="w-full h-[60px] p-3 flex items-center justify-between bg-white text-gray-800 font-semibold border border-gray-300 rounded-lg shadow transition-all hover:bg-gray-800 hover:text-white hover:shadow-lg my-2">
                                 <label key={profile.id} className="cursor-pointer flex items-center gap-2">
                                     <input
                                         disabled={isLoginPending}

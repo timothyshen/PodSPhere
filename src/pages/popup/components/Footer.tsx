@@ -1,7 +1,5 @@
-import { FontAwesomeIcon, FontAwesomeIconProps } from "@fortawesome/react-fontawesome";
-import { IconDefinition, faHome } from "@fortawesome/free-solid-svg-icons";
-import { faBell } from "@fortawesome/free-solid-svg-icons";
-import { faAngleDoubleUp } from "@fortawesome/free-solid-svg-icons";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { IconDefinition, faHome, faUser, faBell } from "@fortawesome/free-solid-svg-icons";
 
 type IconContainerProps = {
     icon: IconDefinition;
@@ -14,15 +12,36 @@ const IconContainer = ({ icon, label }: IconContainerProps) => (
     </div>
 );
 
-const Footer = () => {
+const Footer = (navgate) => {
 
     return (
         <div className="min-h-[50px] w-full flex justify-around items-center bg-zinc-100">
-            <div>
+            <div onClick={
+                () => {
+                    navgate.navigateToPage('UserHome');
+                }
+
+            }>
                 <IconContainer icon={faHome} label="Home" />
             </div>
-            <IconContainer icon={faAngleDoubleUp} label="Scroll Up" />
-            <IconContainer icon={faBell} label="Notifications" />
+            <div onClick={
+                () => {
+                    navgate.navigateToPage('UserHome');
+                }
+
+            }>
+                <IconContainer icon={faBell} label="Notifications" />
+            </div>
+
+            <div onClick={
+                () => {
+                    navgate.navigateToPage('Profile');
+                }
+
+            }>
+                <IconContainer icon={faUser} label="Profile" />
+            </div>
+
         </div>
     );
 }

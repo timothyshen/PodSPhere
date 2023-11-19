@@ -69,9 +69,6 @@ const CommentModal = ({ publicationText }: { publicationText: string }) => {
 
     if (publicationLoading) return <div>Loading...</div>;
 
-    if (publicationError) return <div>Error! {publicationError.message}</div>;
-
-
     return (
         <>
             <DialogContent className="w-[380px]">
@@ -97,7 +94,6 @@ const CommentModal = ({ publicationText }: { publicationText: string }) => {
                             </Button>
                         </DialogClose>
                     </DialogFooter>
-                    {!loading && error && <pre>{error.message}</pre>}
                 </form>
             </DialogContent>
         </>

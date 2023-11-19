@@ -1,11 +1,9 @@
 import Footer from '../components/Footer'
 import CommentBar from '../components/WriteComment/CommentBar'
 import CommentFilter from '../components/Comment/CommentFilter'
-import Comment from '../components/Comment/Comment'
 import Podcast from '../components/Podcast/Podcast'
 import Header from '../components/Header'
 import { useEffect } from 'react'
-import browser from 'webextension-polyfill';
 import { useState } from 'react'
 import { getToken, fetchEpisode } from '../lib/Spotify'
 import CommentList from '../components/Comment/CommentList'
@@ -23,11 +21,6 @@ export default function UserHome({ navigateToPage }: { navigateToPage: (page: Re
     const [PodcastId, setPodcastId] = useState<string>("");
     const [title, setTitle] = useState<string>("");
     const [PodcastData, setPodcastData] = useState<any>(null);
-
-    const clientId = "214519cca0e2470ca5547f90968ed5ac";
-    const params = new URLSearchParams(window.location.search);
-    console.log("code", params);
-    const code = params.get("code");
 
     useEffect(() => {
         chrome.tabs.query({ active: true, currentWindow: true }, (tabs) => {
@@ -65,12 +58,12 @@ export default function UserHome({ navigateToPage }: { navigateToPage: (page: Re
                 />
                 {/* )} */}
                 <CommentFilter />
-                {/* <CommentListLens /> */}
+                <CommentListLens />
                 <CommentList />
 
             </main >
             <CommentBar />
-            <Footer />
+            <Footer navgate={navigateToPage} />
         </>
     )
 }
