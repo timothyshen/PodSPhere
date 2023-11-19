@@ -1,4 +1,4 @@
-import Comment from './Comment';
+import Comment from './CommentForPodCast';
 import { getAllComments } from "@root/utils/graphql/init";
 import { useEffect, useState } from 'react';
 

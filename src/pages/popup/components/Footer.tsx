@@ -12,13 +12,13 @@ const IconContainer = ({ icon, label }: IconContainerProps) => (
     </div>
 );
 
-const Footer = (navgate) => {
+const Footer = ({ navigateToPage }: { navigateToPage: (page: React.SetStateAction<string>) => void }) => {
 
     return (
         <div className="min-h-[50px] w-full flex justify-around items-center bg-zinc-100">
             <div onClick={
                 () => {
-                    navgate.navigateToPage('UserHome');
+                    navigateToPage('UserHome');
                 }
 
             }>
@@ -26,7 +26,7 @@ const Footer = (navgate) => {
             </div>
             <div onClick={
                 () => {
-                    navgate.navigateToPage('UserHome');
+                    navigateToPage('UserHome');
                 }
 
             }>
@@ -35,7 +35,7 @@ const Footer = (navgate) => {
 
             <div onClick={
                 () => {
-                    navgate.navigateToPage('Profile');
+                    navigateToPage('Profile');
                 }
 
             }>

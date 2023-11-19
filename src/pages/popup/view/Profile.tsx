@@ -6,7 +6,7 @@ import { useState } from 'react'
 import CommentListLens from '../components/Comment/CommentList-lens'
 import { ProfileCard } from '../components/Profile/ProfileCard'
 import { useAuth } from '../context/AuthContext';
-import { useProfile } from '@lens-protocol/react-web';
+import { useProfile, profileId as lensId } from '@lens-protocol/react-web';
 
 
 
@@ -16,7 +16,9 @@ export default function Profile({ navigateToPage }: { navigateToPage: (page: Rea
     const [title, setTitle] = useState<string>("");
     const [PodcastData, setPodcastData] = useState<any>(null);
     const { profileId } = useAuth();
-    const { data: profile, error, loading } = useProfile({ forProfileId: profileId(profileId) });
+    console.log(profileId)
+    const { data: profile, error, loading } = useProfile({ forProfileId: lensId(profileId) });
+    console.log(profile, error, loading)
 
     return (
         <>
@@ -27,7 +29,7 @@ export default function Profile({ navigateToPage }: { navigateToPage: (page: Rea
                 <CommentListLens />
             </main >
             <CommentBar />
-            <Footer />
+            <Footer navigateToPage={navigateToPage} />
         </>
     )
 }
