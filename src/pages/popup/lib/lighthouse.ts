@@ -1,6 +1,6 @@
 import lighthouse from '@lighthouse-web3/sdk';
 
-const apiKey = '025f2373.';
+const apiKey = '025f2373.3c424c6d77904a31bf70b760a05de164';
 
 export async function uploadLighthouse(upload_path: string) {
   console.log('uploading to lighthouse');

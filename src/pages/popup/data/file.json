@@ -1,0 +1,67 @@
+{
+  "audio_preview_url" : "https://podz-content.spotifycdn.com/audio/clips/0F2FN9iDmzX1JpuS7LzcwY/clip_0_60000.mp3",
+  "description" : "For a while there, Adidas Web3 lead Erika Wykes-Sneyd worried her push to get the 74-year-old brand working with Web3 partners might not work out. \"Like signing a deal with the Bored Ape Yacht Club when Gargamel and Gordon were not doxxed individuals—that got me nervous,\" she told Stacy Elliott and Andrew Hayward. \"Approving the first ever ETH purchase on a public company. Like DAX organizations are pretty risk averse. I was like, definitely could get fired for this.\" Spoiler: She wasn't fired. Now, the company's crafting narratives for its new ALTS collection.For more from Decrypt, visit decrypt.co and follow @gmdecrypt on Twitter.Be sure to join the gm Telegram room for direct access to our hosts and guests.Hosts and guests:Stacy ElliottTwitter: @stacyannjAndrew HaywardTwitter: @ahaywaErika Wykes-SneydTwitter: @shadows_ethPodcast thumbnail art by Grant Kempster Hosted on Acast. See acast.com/privacy for more information.",
+  "duration_ms" : 2304156,
+  "explicit" : false,
+  "external_urls" : {
+    "spotify" : "https://open.spotify.com/episode/4W7nMRRxcmeSwvAcbl789k"
+  },
+  "href" : "https://api.spotify.com/v1/episodes/4W7nMRRxcmeSwvAcbl789k",
+  "html_description" : "<p>For a while there, Adidas Web3 lead Erika Wykes-Sneyd worried her push to get the 74-year-old brand working with Web3 partners might not work out. &#34;Like signing a deal with the Bored Ape Yacht Club when Gargamel and Gordon were not doxxed individuals—that got me nervous,&#34; she told Stacy Elliott and Andrew Hayward. &#34;Approving the first ever ETH purchase on a public company. Like DAX organizations are pretty risk averse. I was like, definitely could get fired for this.&#34; Spoiler: She wasn&#39;t fired. Now, the company&#39;s crafting narratives for its new ALTS collection.</p><br /><p>For more from Decrypt, visit decrypt.co and follow &#64;<a href=\"https://twitter.com/gmdecrypt\" rel=\"nofollow\">gmdecrypt</a> on Twitter.</p><p>Be sure to join the <a href=\"https://t.me/gmpodcast\" rel=\"nofollow\">gm Telegram room</a> for direct access to our hosts and guests.</p><br /><p>Hosts and guests:</p><br /><p>Stacy Elliott</p><p>Twitter: &#64;<a href=\"https://twitter.com/stacyannj?lang&#61;en\" rel=\"nofollow\">stacyannj</a></p><br /><p>Andrew Hayward</p><p>Twitter: &#64;<a href=\"https://open.acast.com/shows/61aa589af86cba0013562429/episodes/ahaywa\" rel=\"nofollow\">ahaywa</a></p><br /><p>Erika Wykes-Sneyd</p><p>Twitter: &#64;<a href=\"https://twitter.com/shadows_eth?lang&#61;en\" rel=\"nofollow\">shadows_eth</a></p><br /><p>Podcast thumbnail art by <a href=\"https://www.grantkempster.design/new-page\" rel=\"nofollow\">Grant Kempster</a></p><br /><p> Hosted on Acast. See <a href=\"https://acast.com/privacy\" rel=\"nofollow\">acast.com/privacy</a> for more information.</p>",
+  "id" : "4W7nMRRxcmeSwvAcbl789k",
+  "images" : [ {
+    "height" : 640,
+    "url" : "https://i.scdn.co/image/ab6765630000ba8adda74136e4992fec639a5cc3",
+    "width" : 640
+  }, {
+    "height" : 300,
+    "url" : "https://i.scdn.co/image/ab67656300005f1fdda74136e4992fec639a5cc3",
+    "width" : 300
+  }, {
+    "height" : 64,
+    "url" : "https://i.scdn.co/image/ab6765630000f68ddda74136e4992fec639a5cc3",
+    "width" : 64
+  } ],
+  "is_externally_hosted" : false,
+  "is_playable" : true,
+  "language" : "en",
+  "languages" : [ "en" ],
+  "name" : "gm: Token-Gated Merch and ALTS with Adidas's Erika Wykes-Sneyd",
+  "release_date" : "2023-05-17",
+  "release_date_precision" : "day",
+  "show" : {
+    "available_markets" : [ "AD", "AE", "AG", "AL", "AM", "AO", "AR", "AT", "AU", "AZ", "BA", "BB", "BE", "BF", "BG", "BH", "BI", "BJ", "BN", "BO", "BR", "BS", "BT", "BW", "BZ", "CA", "CH", "CI", "CL", "CM", "CO", "CR", "CV", "CW", "CY", "CZ", "DE", "DJ", "DK", "DM", "DO", "DZ", "EC", "EE", "EG", "ES", "FI", "FJ", "FM", "FR", "GA", "GB", "GD", "GE", "GH", "GM", "GN", "GQ", "GR", "GT", "GW", "GY", "HK", "HN", "HR", "HT", "HU", "ID", "IE", "IL", "IN", "IS", "IT", "JM", "JO", "JP", "KE", "KH", "KI", "KM", "KN", "KR", "KW", "LA", "LB", "LC", "LI", "LR", "LS", "LT", "LU", "LV", "MA", "MC", "ME", "MG", "MH", "MK", "ML", "MN", "MO", "MR", "MT", "MU", "MV", "MW", "MX", "MY", "MZ", "NA", "NE", "NG", "NI", "NL", "NO", "NP", "NR", "NZ", "OM", "PA", "PE", "PG", "PH", "PL", "PS", "PT", "PW", "PY", "QA", "RO", "RS", "RW", "SA", "SB", "SC", "SE", "SG", "SI", "SK", "SL", "SM", "SN", "SR", "ST", "SV", "SZ", "TD", "TG", "TH", "TL", "TN", "TO", "TR", "TT", "TV", "TW", "TZ", "UA", "US", "UY", "UZ", "VC", "VN", "VU", "WS", "XK", "ZA", "ZM", "ZW" ],
+    "copyrights" : [ ],
+    "description" : "gm! Host Stacy Elliott and other Decrypt journalists bring you candid deep-dive conversations with the biggest names in crypto. Get schooled on the latest in Bitcoin, Ethereum, DeFi, NFTs, DAOs, Metaverse, and all things Web3 culture. Hosted on Acast. See acast.com/privacy for more information.",
+    "explicit" : false,
+    "external_urls" : {
+      "spotify" : "https://open.spotify.com/show/5fttBnmchEjxtlPFwPXcwL"
+    },
+    "href" : "https://api.spotify.com/v1/shows/5fttBnmchEjxtlPFwPXcwL",
+    "html_description" : "gm! Host Stacy Elliott and other Decrypt journalists bring you candid deep-dive conversations with the biggest names in crypto. Get schooled on the latest in Bitcoin, Ethereum, DeFi, NFTs, DAOs, Metaverse, and all things Web3 culture.<br /><p> Hosted on Acast. See <a href=\"https://acast.com/privacy\" rel=\"nofollow\">acast.com/privacy</a> for more information.</p>",
+    "id" : "5fttBnmchEjxtlPFwPXcwL",
+    "images" : [ {
+      "height" : 640,
+      "url" : "https://i.scdn.co/image/ab6765630000ba8ae403319478f41cb268103e45",
+      "width" : 640
+    }, {
+      "height" : 300,
+      "url" : "https://i.scdn.co/image/ab67656300005f1fe403319478f41cb268103e45",
+      "width" : 300
+    }, {
+      "height" : 64,
+      "url" : "https://i.scdn.co/image/ab6765630000f68de403319478f41cb268103e45",
+      "width" : 64
+    } ],
+    "is_externally_hosted" : false,
+    "languages" : [ "en" ],
+    "media_type" : "audio",
+    "name" : "gm from Decrypt",
+    "publisher" : "Decrypt Media: News about Bitcoin, blockchain, Ethereum, NFTs, Web3",
+    "total_episodes" : 863,
+    "type" : "show",
+    "uri" : "spotify:show:5fttBnmchEjxtlPFwPXcwL"
+  },
+  "type" : "episode",
+  "uri" : "spotify:episode:4W7nMRRxcmeSwvAcbl789k"
+}                                                       

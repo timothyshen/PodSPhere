@@ -2,6 +2,7 @@ import React from "react";
 import { Avatar, AvatarFallback, AvatarImage } from "../ui/avatar";
 import { Button } from "../ui/button";
 import { UseReactionToggle } from "./UseReactionToggle";
+import { getAllComments } from "@root/utils/graphql/init";
 
 interface CommentProps {
     username: string;

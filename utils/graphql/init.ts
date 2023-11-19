@@ -39,6 +39,7 @@ export const getAllComments = async () => {
     });
 
     console.log('All comments:', response.data.getComments);
+    return response;
   } catch (error: any) {
     console.error('Error getting comments:', error.message);
   }

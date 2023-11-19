@@ -1,11 +1,11 @@
 "use client";
-import { LensConfig, development } from "@lens-protocol/react-web";
+import { LensConfig, development, production } from "@lens-protocol/react-web";
 import { bindings as wagmiBindings } from "@lens-protocol/wagmi";
 import { LensProvider as Provider } from "@lens-protocol/react-web";
 
 const lensConfig: LensConfig = {
     bindings: wagmiBindings(),
-    environment: development,
+    environment: production,
 };
 
 export function LensProvider({ children }) {

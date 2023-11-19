@@ -10,7 +10,7 @@ export default function Home() {
   };
 
   return (
-    <div className="h-[600px] w-[400px] rounded-t-lg">
+    <div className=" w-[400px] rounded-t-lg">
 
       {activePage === 'UserHome' && <UserHome navigateToPage={navigateToPage} />}
       {activePage === 'Login' && <Login navigateToPage={navigateToPage} />}

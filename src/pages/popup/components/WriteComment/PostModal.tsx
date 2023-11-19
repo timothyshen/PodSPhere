@@ -28,6 +28,7 @@ const PostModal = () => {
     const onSubmit = async (event: React.FormEvent<HTMLFormElement>) => {
         event.preventDefault();
 
+
         // Create post metadata
         const metadata = textOnly({
             content: comment,
@@ -37,7 +38,7 @@ const PostModal = () => {
 
         // Publish post
         const result = await execute({
-            metadata: await uploadJson(metadata, 'lighthouse'),
+            metadata: await uploadJson(metadata, 'iyks'),
         });
 
         console.log("result", result);
