@@ -1,5 +1,4 @@
 import { textOnly } from '@lens-protocol/metadata';
-import { never } from '../../lib/utils';
 import { useState } from "react";
 import {
     DialogContent,
@@ -11,11 +10,11 @@ import {
 import { Textarea } from "../ui/textarea";
 import { Button } from "../ui/button";
 import Toolbar from "./Toolbar";
-import { useCreatePost, usePublication } from '@lens-protocol/react-web';
-import { useAuth } from '../../context/AuthContext';
+import { useCreatePost } from '@lens-protocol/react-web';
 import { uploadJson } from '../../lib/upload';
-import { ADD_COMMENT } from '@root/utils/graphql/init';
-import { useMutation } from '@apollo/client';
+import { addComment, AddCommentVariables } from '@root/utils/graphql/init';
+import { useAuth } from '../../context/AuthContext';
+
 
 const PostModal = () => {
     const [comment, setComment] = useState("");
@@ -44,26 +43,17 @@ const PostModal = () => {
         console.log("result", result);
         //TODO: Add comment create
 
-        const [addComment] = useMutation(ADD_COMMENT);
-        // try {
-        //     const input = {
-        //         episode_title: 'your_episode_id', // Replace with actual data
-        //         profile_id: profileId, // Replace with actual data
-        //         content: comment, // Use the state comment
-        //         comment_hash: result, // Generate or obtain this hash
-        //         platform: 'your_platform', // Specify the platform
-        //     };
+        const variables: AddCommentVariables =
+        {
+            content: comment,
+            episode_title: "test",
+            commentHash: result as unknown as string,
+            platform: "spotify",
+            profileId: profileId,
+        }
 
-        //     // Call the addComment mutation
-        //     const { data } = await addComment({ variables: { input } });
-        //     console.log('New Comment:', data.addComment);
-        //     // Reset comment field and handle any UI updates
-        //     setComment("");
-        //     // Optionally, show success message to user
-        // } catch (error) {
-        //     console.error('Error adding comment:', error);
-        //     // Handle error in the UI
-        // }
+        const commentResult = await addComment(variables);
+
 
         // check for failure scenarios
         if (result.isFailure()) {

@@ -7,8 +7,20 @@ const client = new ApolloClient({
 });
 
 export const ADD_COMMENT = gql`
-mutation AddComment($episode_title: ID!, $profileId: String!, $content: String!, $platform: String!, $commentHash: String!) {
-    addComment(episode_title: $episode_title, profile_id: $profileId, content: $content, platform: $platform, comment_hash: $commentHash) {
+  mutation AddComment(
+    $episode_title: ID!
+    $profileId: String!
+    $content: String!
+    $platform: String!
+    $commentHash: String!
+  ) {
+    addComment(
+      episode_title: $episode_title
+      profile_id: $profileId
+      content: $content
+      platform: $platform
+      comment_hash: $commentHash
+    ) {
       episode_title
       profile_id
       content
@@ -44,20 +56,23 @@ export const getAllComments = async () => {
   }
 };
 
-export const addComment = async () => {
+export type AddCommentVariables = {
+  episode_title: string;
+  profileId: string;
+  content: string;
+  commentHash: string;
+  platform: string;
+};
+
+export const addComment = async (variables: AddCommentVariables) => {
   try {
     const response = await client.mutate({
       mutation: ADD_COMMENT,
-      variables: {
-        episode_title: "YourEpisodeTitle1",
-        profileId: "YourProfileId1",
-        content: "YourCommentContent1",
-        commentHash: "hash_here1",
-        platform: "YourPlatform1"
-      },
+      variables,
     });
 
     console.log('Added comment:', response.data.addComment);
+    return response.data.addComment;
   } catch (error: any) {
     console.error('Error adding comment:', error.message);
   }

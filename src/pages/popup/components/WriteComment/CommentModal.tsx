@@ -12,7 +12,6 @@ import { Textarea } from "../ui/textarea";
 import { Button } from "../ui/button";
 import Toolbar from "./Toolbar";
 import { publicationId, useCreateComment, usePublication } from '@lens-protocol/react-web';
-import { useAuth } from '../../context/AuthContext';
 import { uploadJson } from '../../lib/upload';
 
 
