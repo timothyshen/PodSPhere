@@ -5,7 +5,6 @@ import Podcast from '../components/Podcast/Podcast'
 import Header from '../components/Header'
 import { useEffect } from 'react'
 import { useState } from 'react'
-import { getToken, fetchEpisode } from '../lib/Spotify'
 import CommentList from '../components/Comment/CommentList'
 
 
@@ -21,6 +20,16 @@ export default function UserHome({ navigateToPage }: { navigateToPage: (page: Re
     const [title, setTitle] = useState<string>("");
     const [PodcastData, setPodcastData] = useState<any>(null);
 
+    function fetchPodcastData(podcastId) {
+        chrome.runtime.sendMessage(
+            { action: "fetchPodcastData", podcastId: podcastId },
+            function (response) {
+                console.log('Podcast data:', response.data);
+                setPodcastData(response.data);
+            }
+        );
+    }
+
     useEffect(() => {
         chrome.tabs.query({ active: true, currentWindow: true }, (tabs) => {
             // console.log(tabs[0].url)
@@ -32,15 +41,7 @@ export default function UserHome({ navigateToPage }: { navigateToPage: (page: Re
             }
         })
 
-        getToken().then((token) => {
-            console.log("token", token.access_token);
-            if (token) {
-                fetchEpisode(token.access_token, PodcastId).then((data) => {
-                    console.log("data", data);
-                    setPodcastData(data);
-                })
-            }
-        })
+        fetchPodcastData(PodcastId)
     }, [PodcastId]);
 
 

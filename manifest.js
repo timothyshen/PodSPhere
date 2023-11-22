@@ -9,7 +9,7 @@ const manifest = {
   name: packageJson.name,
   version: packageJson.version,
   description: packageJson.description,
-  permissions: ['tabs', 'activeTab', 'storage', 'scripting', 'http://20.26.200.100:4000/', 'https://api.spotify.com/'],
+  permissions: ['tabs', 'activeTab', 'storage', 'scripting'],
   background: {
     service_worker: 'src/pages/background/index.js',
     type: 'module',
@@ -30,6 +30,7 @@ const manifest = {
       css: ['assets/css/index.chunk.css'],
     },
   ],
+  host_permissions: ['http://20.26.200.100:4000/*', 'https://api.spotify.com/*'],
   web_accessible_resources: [
     {
       resources: ['assets/js/*.js', 'assets/css/*.css', 'logo-128.png', 'logo-34.png', 'logo-40.png'],

@@ -2,6 +2,7 @@ import React, { useState } from 'react';
 import UserHome from '../view/home';
 import Login from '../view/login';
 import Profile from '../view/Profile';
+import { RequireProfileSession } from '../provider/ProfileSession';
 
 export default function Home() {
   const [activePage, setActivePage] = useState('Login');

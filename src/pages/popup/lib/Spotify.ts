@@ -20,12 +20,12 @@ export async function getToken() {
 export async function fetchEpisode(token: string, podcastId: string) {
   try {
     console.log(token, podcastId);
-    const result = await axios.get(`https://api.spotify.com/v1/episode/${podcastId}?market=GB`, {
-      headers: { Authorization: `Bearer ${token}`, 'Content-Type': 'application/x-www-form-urlencoded' },
+    const result = await fetch(`https://api.spotify.com/v1/episode/${podcastId}?market=GB`, {
+      headers: new Headers({ Authorization: `Bearer ${token}`, 'Content-Type': 'application/x-www-form-urlencoded' }),
     });
 
     console.log('result', result);
-    return result.data;
+    return result;
   } catch (error) {
     console.error('Error fetching episode:', error);
     // Handle or rethrow the error as needed

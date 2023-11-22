@@ -4,6 +4,8 @@
  */
 
 import browser from 'webextension-polyfill';
+import { getToken, fetchEpisode } from '../popup/lib/Spotify';
+import { get } from 'http';
 
 browser.runtime.onMessage.addListener(async (request, sender, sendResponse) => {
   let { urls } = await browser.storage.local.get('urls');
@@ -25,6 +27,25 @@ browser.runtime.onMessage.addListener(async (request, sender, sendResponse) => {
       }
     });
     return true; // Keep the message channel open for the response
+  }
+});
+
+// Listening for messages
+chrome.runtime.onMessage.addListener((request, sender, sendResponse) => {
+  console.log('request', request);
+  if (request.action === 'fetchPodcastData') {
+    console.log('fetching podcast data');
+    getToken().then(token => {
+      fetchEpisode(token.access_token, request.podcastId)
+        .then(data => {
+          console.log('podcast data', data);
+          sendResponse(data);
+        })
+        .catch(error => {
+          console.log('error fetching podcast data', error);
+        });
+    });
+    return true; // Indicates an asynchronous response
   }
 });
 
