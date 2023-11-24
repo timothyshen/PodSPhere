@@ -1,5 +1,6 @@
 import React from 'react';
 import { LogInPage } from '../components/Login/NormalLogin'
+import { Button } from '../components/ui/button';
 // import WorldCoinButton from '../components/Login/WorldCoinButton'
 
 export default function Login({ navigateToPage }: { navigateToPage: (page: React.SetStateAction<string>) => void }) {
@@ -11,6 +12,9 @@ export default function Login({ navigateToPage }: { navigateToPage: (page: React
                 alt="Logo"
             />
             <LogInPage navigateToPage={navigateToPage} />
+            <Button>
+                Login in with WorldCoin
+            </Button>
         </div>
     );
 }

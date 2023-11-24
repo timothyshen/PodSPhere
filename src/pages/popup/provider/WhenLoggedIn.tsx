@@ -7,8 +7,6 @@ import {
 } from '@lens-protocol/react-web';
 import { ReactNode } from 'react';
 
-import { ErrorMessage } from '../error/ErrorMessage';
-import { Loading } from '../loading/Loading';
 
 export type RenderFunction<T extends Session> = (session: T) => ReactNode;
 

@@ -12,11 +12,16 @@ export default function Home() {
   };
 
   return (
-    <div className=" w-[400px] rounded-t-lg">
+    <div className=" w-[400px] h-[600px] rounded-t-lg">
+      <RequireProfileSession navigateToPage={navigateToPage}>
 
-      {activePage === 'UserHome' && <UserHome navigateToPage={navigateToPage} />}
-      {activePage === 'Login' && <Login navigateToPage={navigateToPage} />}
-      {activePage === 'Profile' && <Profile navigateToPage={navigateToPage} />}
+
+        {activePage === 'UserHome' && <UserHome navigateToPage={navigateToPage} />}
+        {activePage === 'Login' && <Login navigateToPage={navigateToPage} />}
+        {activePage === 'Profile' && <Profile navigateToPage={navigateToPage} />}
+
+      </RequireProfileSession >
     </div>
   );
+
 }

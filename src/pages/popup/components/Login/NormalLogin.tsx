@@ -12,6 +12,10 @@ export function LogInPage({ navigateToPage }: { navigateToPage: (page: React.Set
 
     return (
         <div>
+            {isConnecting && (
+                <p>Connecting...</p>
+            )}
+
             {!isConnected &&
                 <button
                     className="px-6 py-3 bg-blue-500 text-white font-semibold rounded-md hover:bg-blue-600 focus:outline-none focus:ring-2 focus:ring-blue-300"
@@ -21,10 +25,6 @@ export function LogInPage({ navigateToPage }: { navigateToPage: (page: React.Set
                     Open Connect Modal
                 </button>
             }
-
-            {isConnecting && (
-                <p>Connecting...</p>
-            )}
 
             {address && (
                 <div>
