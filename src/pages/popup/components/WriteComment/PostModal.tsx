@@ -37,23 +37,23 @@ const PostModal = () => {
 
         // Publish post
         const result = await execute({
-            metadata: await uploadJson(metadata, 'light'),
+            metadata: await uploadJson(metadata, 'bundlr'),
         });
 
         console.log("result", result);
         //TODO: Add comment create
 
-        const variables: AddCommentVariables =
-        {
-            content: comment,
-            episode_title: "test",
-            commentHash: result as unknown as string,
-            platform: "spotify",
-            profileId: profileId,
-        }
+        // const variables: AddCommentVariables =
+        // {
+        //     content: comment,
+        //     episode_title: "test",
+        //     commentHash: result as unknown as string,
+        //     platform: "spotify",
+        //     profileId: profileId,
+        // }
 
-        const commentResult = await addComment(variables);
-        console.log("commentResult", commentResult);
+        // const commentResult = await addComment(variables);
+        // console.log("commentResult", commentResult);
 
         // check for failure scenarios
         if (result.isFailure()) {

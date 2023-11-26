@@ -10,6 +10,7 @@ type ProfileCardProps = {
 
 export function ProfileCard({ profile, children }: ProfileCardProps) {
     const { metadata } = profile;
+    console.log("metadata", metadata)
 
     return (
         <article className="max-w-md mx-auto bg-white rounded-lg shadow-md overflow-hidden p-5 mb-5">
@@ -21,7 +22,7 @@ export function ProfileCard({ profile, children }: ProfileCardProps) {
 
             {metadata && (
                 <div className="space-y-3">
-                    <ProfilePicture picture={metadata.picture} />
+                    <ProfilePicture />
                     <p className="font-semibold">Name: <span className="font-normal">{metadata.displayName}</span></p>
                     <p className="font-semibold">Bio: <span className="font-normal">{metadata.bio}</span></p>
                     <ul className="list-disc list-inside">

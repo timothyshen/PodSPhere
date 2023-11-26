@@ -3,7 +3,6 @@ import { getIrys, getBundlr } from './bundlr';
 import { uploadLighthouse } from './lighthouse';
 
 export async function uploadJson(data: unknown, choice: string): Promise<string> {
-  const irys = await getIrys();
   const tags = [{ name: 'Content-Type', value: 'application/json', project: 'PodSphere' }];
   const serialized = JSON.stringify(data);
   console.log(serialized);
@@ -13,8 +12,9 @@ export async function uploadJson(data: unknown, choice: string): Promise<string>
     return `https://gateway.lighthouse.storage/ipfs/${lighthouse}`;
   }
   if (choice === 'irys') {
+    const irys = await getIrys();
     const price = await irys.getPrice(new Blob([serialized]).size);
-    await irys.fund(price);
+    await irys.fund(price); 
 
     const receipt = await irys.upload(serialized, { tags });
     console.log(`Data uploaded ==> https://gateway.irys.xyz/${receipt.id}`);
@@ -22,6 +22,7 @@ export async function uploadJson(data: unknown, choice: string): Promise<string>
   }
   if (choice === 'bundlr') {
     const bundlr = await getBundlr();
+    console.log('bundlr', bundlr);
 
     const serialized = JSON.stringify(data);
     const tx = await bundlr.upload(serialized, {

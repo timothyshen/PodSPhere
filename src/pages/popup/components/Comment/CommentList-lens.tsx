@@ -35,7 +35,7 @@ const Comment: React.FC<CommentProps> = ({ username, commentText, platform, time
                     </div>
                     <div>{commentText}</div>
                     <div className="text-xs text-gray-500">{userInterests.join(', ')}</div>
-                    <div className="text-xs text-gray-500">{platform}</div>
+                    {/* <div className="text-xs text-gray-500">{platform}</div> */}
                 </div>
             </div>
         </div>
@@ -57,21 +57,26 @@ const CommentListLens = () => {
             },
         })
 
-    console.log(publications);
+    console.log("publication", publications);
 
     return (
         <div>
             {publications && publications.map((publication) => (
-                <Comment
-                    key={publication.id}
-                    username={publication.by.id} // Or any other relevant field
-                    //@ts-ignore
-                    commentText={publication.metadata.content}
-                    platform={publication.publishedOn.id} // Or any other relevant field
-                    timestamp={new Date(publication.createdAt).toLocaleString()} // Format date as needed
-                    userInterests={publication.by.interests || []}
-                    isUserVerified={publication.by.onchainIdentity.proofOfHumanity || false}
-                />
+                <div className="grid gap-6 mt-5">
+                    <div className="text-sm flex items-start gap-4">
+                        {publication.id}
+                    </div>
+                </div>
+                // <Comment
+                //     key={publication.id}
+                //     username={publication.by.id} // Or any other relevant field
+                //     //@ts-ignore
+                //     commentText={publication.metadata.content}
+                //     platform="apple"// Or any other relevant field
+                //     timestamp={new Date(publication.createdAt).toLocaleString()} // Format date as needed
+                //     userInterests={publication.by.interests || []}
+                //     isUserVerified={publication.by.onchainIdentity.proofOfHumanity || false}
+                // />
             ))}
         </div>
     );

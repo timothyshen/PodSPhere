@@ -1,6 +1,7 @@
 import { NftImage, ProfilePictureSet } from '@lens-protocol/react-web';
 
 import { useBuildResourceSrc } from '../../hooks/useBuildResourceSrc';
+import { useWeb3Modal } from '@web3modal/wagmi/react';
 
 const PROFILE_PICTURE_SIZE = '40px';
 
@@ -19,12 +20,13 @@ function FallbackProfilePicture() {
 }
 
 type RemoteProfilePictureProps = {
-  picture: ProfilePictureSet;
+  picture?: ProfilePictureSet;
 };
 
 function RemoteProfilePicture({ picture }: RemoteProfilePictureProps) {
   const url = picture.optimized?.uri || picture.raw.uri;
   const src = useBuildResourceSrc(url);
+  const { open } = useWeb3Modal()
   if (!src) return null;
   return (
     <img
@@ -33,6 +35,9 @@ function RemoteProfilePicture({ picture }: RemoteProfilePictureProps) {
         height: PROFILE_PICTURE_SIZE,
         width: PROFILE_PICTURE_SIZE,
         borderRadius: '50%',
+      }}
+      onClick={() => {
+        open()
       }}
     />
   );

@@ -11,17 +11,19 @@ export default function Home() {
     setActivePage(page);
   };
 
+  const handleLoggedIn = () => {
+    setActivePage('UserHome');
+  };
+
+  const handleLoggedOut = () => {
+    setActivePage('Login');
+  };
+
   return (
     <div className=" w-[400px] h-[600px] rounded-t-lg">
-      <RequireProfileSession navigateToPage={navigateToPage}>
-
-
-        {activePage === 'UserHome' && <UserHome navigateToPage={navigateToPage} />}
-        {activePage === 'Login' && <Login navigateToPage={navigateToPage} />}
-        {activePage === 'Profile' && <Profile navigateToPage={navigateToPage} />}
-
-      </RequireProfileSession >
+      {activePage === 'UserHome' && <UserHome navigateToPage={navigateToPage} />}
+      {activePage === 'Login' && <Login navigateToPage={navigateToPage} />}
+      {activePage === 'Profile' && <Profile navigateToPage={navigateToPage} />}
     </div>
   );
-
 }

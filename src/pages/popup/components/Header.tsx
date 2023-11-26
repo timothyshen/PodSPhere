@@ -36,7 +36,7 @@ const Header = () => {
                     }
                 }
             >
-                {/* <ProfilePicture picture={profile.metadata.picture} /> */}
+                <ProfilePicture />
             </div>
         </div>
     );
