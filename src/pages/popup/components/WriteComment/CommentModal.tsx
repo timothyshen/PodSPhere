@@ -38,7 +38,7 @@ const CommentModal = ({ publicationText }: { publicationText: string }) => {
         // Publish post
         const result = await execute({
             commentOn: publication?.id ?? never('publication is not loaded'),
-            metadata: await uploadJson(metadata, 'lighthouse'),
+            metadata: await uploadJson(metadata, 'bundlr'),
         });
 
         console.log("result", result);

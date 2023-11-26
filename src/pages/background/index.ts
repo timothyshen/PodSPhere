@@ -19,7 +19,7 @@ browser.runtime.onMessage.addListener(async (request, sender, sendResponse) => {
         try {
           browser.tabs.sendMessage(tabs[0].id, { message: 'fetchTitle' }).then(response => {
             console.log(response);
-            sendResponse({ title: response.title });
+            sendResponse();
           });
         } catch {
           console.log('error sending message to content script');

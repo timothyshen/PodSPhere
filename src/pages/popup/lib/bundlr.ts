@@ -1,9 +1,12 @@
 import { WebBundlr } from '@bundlr-network/client';
-import { Web3Provider } from '@ethersproject/providers';
+import { walletConnectProvider } from '@web3modal/wagmi';
+import { WebIrys } from '@irys/sdk';
+import { providers } from 'ethers';
 import { getWalletClient } from 'wagmi/actions';
 import Irys from '@irys/sdk';
 
 import { never } from './utils';
+import { ether } from '@lens-protocol/react-web';
 
 const TOP_UP = '200000000000000000'; // 0.2 MATIC
 const MIN_FUNDS = 0.05;
@@ -26,16 +29,12 @@ export async function getBundlr() {
   return bundlr;
 }
 
-export async function getIrys() {
-  const url = 'https://devnet.irys.xyz';
-  const providerUrl = 'https://rpc-mumbai.maticvigil.com';
+export const getIrys = async () => {
+  const provider = new providers.Web3Provider(window.ethereum);
+  const wallet = { name: 'ethersv5', provider: provider };
+  const url = 'https://node1.irys.xyz';
   const token = 'matic';
-
-  const irys = new Irys({
-    url, // URL of the node you want to connect to
-    token, // Token used for payment
-    key: process.env.PRIVATE_KEY, // Private key
-    config: { providerUrl }, // Optional provider URL, only required when using Devnet
-  });
-  return irys;
-}
+  const webIrys = new WebIrys({ url, token, wallet });
+  await webIrys.ready();
+  return webIrys;
+};

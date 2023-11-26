@@ -5,7 +5,7 @@ import { LensProvider as Provider } from "@lens-protocol/react-web";
 
 const lensConfig: LensConfig = {
     bindings: wagmiBindings(),
-    environment: production,
+    environment: development,
 };
 
 export function LensProvider({ children }) {
