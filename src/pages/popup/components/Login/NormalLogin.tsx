@@ -28,7 +28,11 @@ export function LogInPage({ navigateToPage }: { navigateToPage: (page: React.Set
 
             {address && (
                 <div>
-                    <p className="bg-blue-100 text-blue-800 font-semibold px-4 py-2 rounded-lg shadow border border-blue-300 hover:shadow-md transition-all">
+                    <p
+                        className="bg-blue-100 text-blue-800 font-semibold px-4 py-2 rounded-lg shadow border border-blue-300 hover:shadow-md transition-all"
+                        onClick={() => {
+                            open()
+                        }}>
                         {`Using wallet ${address.substring(0, 6)}...${address.substring(address.length - 4)}`}
                     </p>
                     <LensLogin owner={address} onSuccess={() => navigateToPage('UserHome')} />
