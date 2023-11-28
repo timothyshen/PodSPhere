@@ -1,5 +1,4 @@
 import { WebBundlr } from '@bundlr-network/client';
-import { Web3Provider } from '@ethersproject/providers';
 
 import { WebIrys } from '@irys/sdk';
 import { providers } from 'ethers';

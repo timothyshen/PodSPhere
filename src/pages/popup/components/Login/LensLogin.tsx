@@ -33,7 +33,7 @@ export function LensLogin({ owner, onSuccess }: { owner: string; onSuccess?: () 
         return <p>Loading...</p>;
     }
     //@ts-ignore
-    if (profiles.length === 0 || profiles === undefined) {
+    if (profiles === undefined) {
         return <p>No profiles on this wallet.</p>;
     }
 
