@@ -20,8 +20,6 @@ const PostModal = () => {
     const [comment, setComment] = useState("");
     const { profileId } = useAuth();
 
-
-
     const { execute, loading, error } = useCreatePost();
 
     const onSubmit = async (event: React.FormEvent<HTMLFormElement>) => {

@@ -22,7 +22,7 @@ export function ProfileCard({ profile, children }: ProfileCardProps) {
 
             {metadata && (
                 <div className="space-y-3">
-                    <ProfilePicture />
+                    {/* <ProfilePicture /> */}
                     <p className="font-semibold">Name: <span className="font-normal">{metadata.displayName}</span></p>
                     <p className="font-semibold">Bio: <span className="font-normal">{metadata.bio}</span></p>
                     <ul className="list-disc list-inside">

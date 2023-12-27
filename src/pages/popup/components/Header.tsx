@@ -36,7 +36,7 @@ const Header = () => {
                     }
                 }
             >
-                <ProfilePicture />
+                {/* <ProfilePicture /> */}
             </div>
         </div>
     );

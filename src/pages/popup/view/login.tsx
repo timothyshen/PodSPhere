@@ -12,9 +12,6 @@ export default function Login({ navigateToPage }: { navigateToPage: (page: React
                 alt="Logo"
             />
             <LogInPage navigateToPage={navigateToPage} />
-            <Button>
-                Login in with WorldCoin
-            </Button>
         </div>
     );
 }
